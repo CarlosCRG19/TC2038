@@ -10,12 +10,6 @@
 
 using namespace std;
 
-void printPatternSearching(string transmissionText, string maliciousCode){
-    cout << "true" << endl;
-    cout << "true" << endl;
-    cout << "false" << endl;
-}
-
 string getFileContentAsString(string filePath){
     ifstream inputFile(filePath);
     if (!inputFile.is_open()) {
