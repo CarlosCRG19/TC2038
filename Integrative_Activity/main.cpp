@@ -12,23 +12,32 @@ using namespace std;
 
 string getFileContentAsString(string filePath){
     ifstream inputFile(filePath);
+
     if (!inputFile.is_open()) {
         cout << "Could not open the file - '" 
             << filePath << "'" << endl; 
     }
+
     stringstream buffer;
     buffer << inputFile.rdbuf();
+
     return buffer.str();
 }
 
 int main(){
     vector<string> transmissions;
     vector<string> maliciousCodes;
-    transmissions.push_back(getFileContentAsString("transmission1.txt"));
-    transmissions.push_back(getFileContentAsString("transmission2.txt"));
-    maliciousCodes.push_back(getFileContentAsString("mcode1.txt"));
-    maliciousCodes.push_back(getFileContentAsString("mcode2.txt"));
-    maliciousCodes.push_back(getFileContentAsString("mcode3.txt"));
+
+    vector<string> transmissionsFilePaths = { "transmissions1.txt", "transmission2.txt" };
+    vector<string> maliciousCodesFilePaths = { "mcode1.txt", "mcode2.txt", "mcode3.txt" };
+
+    for (string path : transmissionsFilePaths) {
+        transmissions.push_back(getFileContentAsString(path));
+    }
+
+    for (string path : maliciousCodesFilePaths) {
+        maliciousCodes.push_back(getFileContentAsString(path));
+    }
     
     for(string transmission : transmissions) {
         for (string maliciousCode : maliciousCodes) {
