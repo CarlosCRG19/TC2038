@@ -42,15 +42,5 @@ int main(){
 
     LongestCommonSubstring::solve(transmissions[0],transmissions[1]);
 
-
-    // StringMatching.solve(transmissions[0], maliciousCodes[0]);
-    // StringMatching.solve(transmission1, mcode2);
-    // StringMatching.solve(transmission1, mcode3);
-    // StringMatching.solve(transmission2, mcode1);
-    // StringMatching.solve(transmission2, mcode2);
-    // StringMatching.solve(transmission2, mcode3);
-
-    // LongestPalindromicSubstring.solve(transmission1);
-    // LongestPalindromicSubstring.solve(transmission2);
     return 0;
 }
