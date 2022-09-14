@@ -45,7 +45,7 @@ int main(){
         cout << "---> transmission" << transmissionNumber << ".txt" << endl;
         for (string maliciousCode : maliciousCodes) {
             cout << "-> mcode" << maliciousCodeNumber << ".txt" << endl;
-            StringMatching::solve(transmission, maliciousCode);
+            cout << boolalpha << StringMatching::solve(transmission, maliciousCode) << endl;
             maliciousCodeNumber++;
         }
         cout << "--------------------------------------------------" << endl;

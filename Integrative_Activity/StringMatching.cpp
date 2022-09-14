@@ -7,7 +7,7 @@ using namespace std;
 class StringMatching {
     // documentacion https://www.youtube.com/watch?v=4jY57Ehc14Y
     public:
-        static void KMPSearch(string text, string pattern) {
+        static bool KMPSearch(string text, string pattern) {
             int N = text.size();
             int M = pattern.size();
 
@@ -35,15 +35,15 @@ class StringMatching {
                     }
                 }
                 if(j == M){
-                    cout << "Found malicious code " << pattern << " in your transmission" << endl;
-                    cout << "Lines: [" << i-j << " - " << i << "]" <<  endl;
-                    j = lps[j-1];
+                    cout << "Found mcode in [" << i-j << " - " << i << "]"<< endl;
+                    j = lps[j-1]; // Get all the string matches, not just the first one
                     foundMaliciousCode = true;
                 }
             } 
             if (!foundMaliciousCode) {
                 cout << "Your transmission is clean of malicious code" << endl;
             }
+            return foundMaliciousCode;
         }
 
         static void computeLPSArray(string pattern, int M, vector<int> &lps) {
@@ -69,7 +69,7 @@ class StringMatching {
             }
         }
 
-        static void solve(string text, string pattern){
-            KMPSearch(text, pattern);
+        static bool solve(string text, string pattern){
+            return KMPSearch(text, pattern);
         }
 };
