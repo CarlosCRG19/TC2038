@@ -5,7 +5,6 @@
 using namespace std;
 
 class StringMatching {
-    // documentacion https://www.youtube.com/watch?v=4jY57Ehc14Y
     public:
         static bool KMPSearch(string text, string pattern) {
             int N = text.size();
@@ -35,14 +34,10 @@ class StringMatching {
                     }
                 }
                 if(j == M){
-                    cout << "Found mcode in [" << i-j << " - " << i << "]"<< endl;
                     j = lps[j-1]; // Get all the string matches, not just the first one
                     foundMaliciousCode = true;
                 }
             } 
-            if (!foundMaliciousCode) {
-                cout << "Your transmission is clean of malicious code" << endl;
-            }
             return foundMaliciousCode;
         }
 

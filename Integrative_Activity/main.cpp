@@ -39,24 +39,19 @@ int main(){
         maliciousCodes.push_back(getFileContentAsString(path));
     }
     
-    int transmissionNumber = 1;
-    int maliciousCodeNumber = 1;
+    cout << "Parte 1" << endl;
     for(string transmission : transmissions) {
-        cout << "---> transmission" << transmissionNumber << ".txt" << endl;
         for (string maliciousCode : maliciousCodes) {
-            cout << "-> mcode" << maliciousCodeNumber << ".txt" << endl;
             cout << boolalpha << StringMatching::solve(transmission, maliciousCode) << endl;
-            maliciousCodeNumber++;
         }
-        cout << "--------------------------------------------------" << endl;
-        maliciousCodeNumber = 1;
-        transmissionNumber++;
     }
 
+    cout << "Parte 2" << endl;
     for(string transmission : transmissions) {
         LongestPalindromicSubstring::solve(transmission);
     }
 
+    cout << "Parte 3" << endl;
     LongestCommonSubstring::solve(transmissions[0],transmissions[1]);
 
     return 0;

@@ -51,7 +51,7 @@ Knowing all of the above, the expected output is
 true
 true
 false
-true
+false
 false
 true
 // Part 2 - Palindrome Detection
