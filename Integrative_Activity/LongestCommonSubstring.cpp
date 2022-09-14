@@ -31,7 +31,6 @@ class LongestCommonSubstring {
 
     public:
         static void solve(string &s1, string &s2){
-            cout << s1 << s2 << endl;
             int n = s1.length(), m = s2.length();
             vector<vector<int>> dp(n+1, vector<int>(m+1, 0));
 
