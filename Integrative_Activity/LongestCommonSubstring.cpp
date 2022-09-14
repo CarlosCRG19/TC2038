@@ -21,8 +21,10 @@ class LongestCommonSubstring {
             }
 
             void printSolution() {
-                int initialPositionInFirstFile = finalPositionInFirstFile - length + 1;
-                int initialPositionInSecondFile = finalPositionInSecondFile - length + 1;
+                // We add +2 because we are not using 0 indexed values.
+                int initialPositionInFirstFile = finalPositionInFirstFile - length + 2;
+                int initialPositionInSecondFile = finalPositionInSecondFile - length + 2;
+
                 cout << initialPositionInFirstFile << " " << finalPositionInFirstFile << "\n";
                 cout << initialPositionInSecondFile << " " << finalPositionInSecondFile << "\n";
 
