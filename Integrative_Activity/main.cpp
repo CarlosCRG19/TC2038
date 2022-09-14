@@ -28,7 +28,7 @@ int main(){
     vector<string> transmissions;
     vector<string> maliciousCodes;
 
-    vector<string> transmissionsFilePaths = { "transmissions1.txt", "transmission2.txt" };
+    vector<string> transmissionsFilePaths = { "transmission1.txt", "transmission2.txt" };
     vector<string> maliciousCodesFilePaths = { "mcode1.txt", "mcode2.txt", "mcode3.txt" };
 
     for (string path : transmissionsFilePaths) {
