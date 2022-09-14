@@ -1,4 +1,5 @@
 #include <string>
+#include <tuple>
 
 using namespace std;
 
@@ -20,19 +21,22 @@ class LongestCommonSubstring {
                 return length;
             }
 
-            void printSolution() {
-                // We add +2 because we are not using 0 indexed values.
-                int initialPositionInFirstFile = finalPositionInFirstFile - length + 2;
-                int initialPositionInSecondFile = finalPositionInSecondFile - length + 2;
+            tuple<string, pair<int, int>, pair<int, int>> getSolution(string &s1) {
+                int initialPositionInFirstFile = finalPositionInFirstFile - length + 1;
+                int initialPositionInSecondFile = finalPositionInSecondFile - length + 1;
 
-                cout << initialPositionInFirstFile << " " << finalPositionInFirstFile << "\n";
-                cout << initialPositionInSecondFile << " " << finalPositionInSecondFile << "\n";
+                // We add +1 because we are not using 0 indexed values.
+                pair<int, int> firstFilePositions = make_pair(initialPositionInFirstFile, finalPositionInFirstFile);
+                pair<int, int> secondFilePositions = make_pair(initialPositionInSecondFile, finalPositionInSecondFile);
 
+                string substring = s1.substr(initialPositionInFirstFile, length);
+
+                return { substring, firstFilePositions, secondFilePositions };
             }
     };
 
     public:
-        static void solve(string &s1, string &s2){
+        static tuple<string, pair<int, int>, pair<int, int>> solve(string &s1, string &s2){
             int n = s1.length(), m = s2.length();
             vector<vector<int>> dp(n+1, vector<int>(m+1, 0));
 
@@ -52,6 +56,6 @@ class LongestCommonSubstring {
                 }
             }
 
-            solutionStore.printSolution();
+            return solutionStore.getSolution(s1);
         }
 };

@@ -38,21 +38,32 @@ int main(){
     for (string path : maliciousCodesFilePaths) {
         maliciousCodes.push_back(getFileContentAsString(path));
     }
-    
-    cout << "Parte 1" << endl;
+    cout << "---| Integrative Activity 1 |---\n";
+
+    cout << "\nPart 1 - String Matching:\n";
     for(string transmission : transmissions) {
         for (string maliciousCode : maliciousCodes) {
-            cout << boolalpha << StringMatching::solve(transmission, maliciousCode) << endl;
+            cout << "\t -> Is malicious code present in transmission?: " << boolalpha << StringMatching::solve(transmission, maliciousCode) << "\n";  
         }
     }
 
-    cout << "Parte 2" << endl;
+    cout << "\nParte 2 - Longest Palindromic Substring:\n";
     for(string transmission : transmissions) {
-        LongestPalindromicSubstring::solve(transmission);
+        auto [palindrome, initialPosition, finalPosition] = LongestPalindromicSubstring::solve(transmission);
+
+        cout << "\t -> Palindrome found: " << palindrome << " ; initialPosition: " << initialPosition << " ; finalPosition: " << finalPosition << ".\n";
+        
     }
 
-    cout << "Parte 3" << endl;
-    LongestCommonSubstring::solve(transmissions[0],transmissions[1]);
+    cout << "\nParte 3 - Longest Common Substring:\n";
+    string substring;
+    pair<int, int> firstFilePositions, secondFilePositions;
+
+    tie(substring, firstFilePositions, secondFilePositions) = LongestCommonSubstring::solve(transmissions[0], transmissions[1]);
+
+    cout << "\t -> Substring found: " << substring;
+    cout << "\t -> Positions in first file: " << firstFilePositions.first  << " " << firstFilePositions.second << ".\n";  
+    cout << "\t -> Positions in second file: " << secondFilePositions.first  << " " << secondFilePositions.second << ".\n";  
 
     return 0;
 }

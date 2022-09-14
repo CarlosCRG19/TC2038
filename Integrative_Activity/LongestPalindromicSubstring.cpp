@@ -1,10 +1,11 @@
 #include <string>
+#include <tuple>
 
 using namespace std;
 
 class LongestPalindromicSubstring {
     public:
-        static void solve(string &s1){
+        static tuple<string, int, int> solve(string &s1){
             string s1Extended;
         
             // Create extended version of string with center between letters
@@ -41,7 +42,9 @@ class LongestPalindromicSubstring {
             int initialPosition = (palindromeCenter - maxLength) / 2;
             int finalPosition = initialPosition + maxLength;
 
+            string palindrome = s1.substr(initialPosition, maxLength);
+
             // +1 is added as we start counting with first column as 1.
-            cout << initialPosition + 1 << " " << finalPosition << "\n";
+            return { palindrome, initialPosition + 1, finalPosition };
         }
 };
