@@ -39,10 +39,18 @@ int main(){
         maliciousCodes.push_back(getFileContentAsString(path));
     }
     
+    int transmissionNumber = 1;
+    int maliciousCodeNumber = 1;
     for(string transmission : transmissions) {
+        cout << "---> transmission" << transmissionNumber << ".txt" << endl;
         for (string maliciousCode : maliciousCodes) {
+            cout << "-> mcode" << maliciousCodeNumber << ".txt" << endl;
             StringMatching::solve(transmission, maliciousCode);
+            maliciousCodeNumber++;
         }
+        cout << "--------------------------------------------------" << endl;
+        maliciousCodeNumber = 1;
+        transmissionNumber++;
     }
 
     for(string transmission : transmissions) {
